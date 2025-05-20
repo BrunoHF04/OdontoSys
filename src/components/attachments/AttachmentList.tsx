@@ -100,10 +100,10 @@ const AttachmentList = ({ patientId, attachments, onDelete }: AttachmentListProp
               {attachment.description && (
                 <p className="mt-1 text-xs text-gray-600 ml-8">{attachment.description}</p>
               )}
-              {attachment.associatedTooth && (
+              {attachment.associatedSmile && (
                 <div className="mt-1 ml-8">
                   <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-cyan-100 text-cyan-800">
-                    Dente {attachment.associatedTooth}
+                    Dente {attachment.associatedSmile}
                   </span>
                 </div>
               )}
@@ -170,8 +170,8 @@ const AttachmentList = ({ patientId, attachments, onDelete }: AttachmentListProp
                 {selectedAttachment.description && (
                   <p><span className="font-medium">Descrição:</span> {selectedAttachment.description}</p>
                 )}
-                {selectedAttachment.associatedTooth && (
-                  <p><span className="font-medium">Dente associado:</span> {selectedAttachment.associatedTooth}</p>
+                {selectedAttachment.associatedSmile && (
+                  <p><span className="font-medium">Dente associado:</span> {selectedAttachment.associatedSmile}</p>
                 )}
               </div>
             </div>

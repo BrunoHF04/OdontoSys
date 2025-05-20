@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Save } from 'lucide-react';
 import { Patient } from '../types/Patient';
-import { ToothData } from '../types/Odontogram';
+import { SmileData } from '../types/Odontogram';
 import Odontogram from '../components/odontogram/Odontogram';
 import toast from 'react-hot-toast';
 
@@ -10,7 +10,7 @@ const OdontogramPage = () => {
   const { id } = useParams<{ id: string }>();
   
   const [patient, setPatient] = useState<Patient | null>(null);
-  const [odontogramData, setOdontogramData] = useState<Record<string, ToothData>>({});
+  const [odontogramData, setOdontogramData] = useState<Record<string, SmileData>>({});
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -83,7 +83,7 @@ const OdontogramPage = () => {
     fetchData();
   }, [id]);
 
-  const handleSaveOdontogram = async (data: Record<string, ToothData>) => {
+  const handleSaveOdontogram = async (data: Record<string, SmileData>) => {
     // In a real app, this would be an API call
     setIsSaving(true);
     

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
-import { ToothSection } from '../../types/Odontogram';
+import { SmileSection } from '../../types/Odontogram';
 
-interface ToothActionsProps {
+interface SmileActionsProps {
   toothId: string;
-  section: ToothSection;
+  section: SmileSection;
   currentAction: string;
   notes: string;
   onActionSelect: (action: string) => void;
@@ -12,7 +12,7 @@ interface ToothActionsProps {
   onClose: () => void;
 }
 
-const ToothActions = ({
+const SmileActions = ({
   toothId,
   section,
   currentAction,
@@ -20,11 +20,11 @@ const ToothActions = ({
   onActionSelect,
   onNotesChange,
   onClose
-}: ToothActionsProps) => {
+}: SmileActionsProps) => {
   const [activeTab, setActiveTab] = useState<'actions' | 'notes'>('actions');
   const [notesValue, setNotesValue] = useState(notes);
 
-  const sectionLabels: Record<ToothSection, string> = {
+  const sectionLabels: Record<SmileSection, string> = {
     'top': 'Oclusal',
     'bottom': 'Cervical',
     'left': 'Mesial',
@@ -134,4 +134,4 @@ const ToothActions = ({
   );
 };
 
-export default ToothActions;
+export default SmileActions;

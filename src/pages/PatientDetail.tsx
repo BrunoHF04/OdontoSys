@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Calendar, Edit, Trash2, ArrowLeft, Tooth } from 'lucide-react';
+import { Calendar, Edit, Trash2, ArrowLeft, Smile } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { Patient } from '../types/Patient';
 import { Attachment } from '../types/Attachment';
-import { ToothData } from '../types/Odontogram';
+import { SmileData } from '../types/Odontogram';
 import PatientForm from '../components/patients/PatientForm';
 import AttachmentList from '../components/attachments/AttachmentList';
 import AttachmentUpload from '../components/attachments/AttachmentUpload';
@@ -13,7 +13,7 @@ import toast from 'react-hot-toast';
 const PatientDetail = () => {
   const [patient, setPatient] = useState<Patient | null>(null);
   const [attachments, setAttachments] = useState<Attachment[]>([]);
-  const [odontogramData, setOdontogramData] = useState<Record<string, ToothData>>({});
+  const [odontogramData, setOdontogramData] = useState<Record<string, SmileData>>({});
   const [isLoading, setIsLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [activeTab, setActiveTab] = useState<'info' | 'attachments'>('info');
@@ -58,7 +58,7 @@ const PatientDetail = () => {
             fileUrl: 'https://images.pexels.com/photos/3845983/pexels-photo-3845983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             uploadDate: '2023-06-15T10:30:00Z',
             description: 'Raio-X panorâmico inicial',
-            associatedTooth: undefined,
+            associatedSmile: undefined,
           },
           {
             id: '2',
@@ -69,7 +69,7 @@ const PatientDetail = () => {
             fileUrl: 'https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             uploadDate: '2023-06-20T14:15:00Z',
             description: 'Raio-X periapical do elemento 18',
-            associatedTooth: '18',
+            associatedSmile: '18',
           },
           {
             id: '3',
@@ -80,7 +80,7 @@ const PatientDetail = () => {
             fileUrl: '#',
             uploadDate: '2023-06-10T09:00:00Z',
             description: 'Ficha de anamnese preenchida pelo paciente',
-            associatedTooth: undefined,
+            associatedSmile: undefined,
           },
         ]);
         
@@ -360,7 +360,7 @@ const PatientDetail = () => {
                     className="bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition-colors flex items-center"
                   >
                     <div className="h-12 w-12 rounded-full bg-cyan-100 flex items-center justify-center mr-4">
-                      <Tooth className="h-6 w-6 text-cyan-600" />
+                      <Smile className="h-6 w-6 text-cyan-600" />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium text-gray-900">Odontograma</h3>

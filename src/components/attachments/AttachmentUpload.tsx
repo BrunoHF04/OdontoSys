@@ -10,7 +10,7 @@ interface AttachmentUploadProps {
 const AttachmentUpload = ({ patientId, onUpload }: AttachmentUploadProps) => {
   const [file, setFile] = useState<File | null>(null);
   const [description, setDescription] = useState('');
-  const [associatedTooth, setAssociatedTooth] = useState('');
+  const [associatedSmile, setAssociatedSmile] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const [dragActive, setDragActive] = useState(false);
 
@@ -62,7 +62,7 @@ const AttachmentUpload = ({ patientId, onUpload }: AttachmentUploadProps) => {
         fileUrl: fakeUrl,
         uploadDate: new Date().toISOString(),
         description,
-        associatedTooth: associatedTooth || undefined
+        associatedSmile: associatedSmile || undefined
       };
       
       // Simulate API delay
@@ -73,7 +73,7 @@ const AttachmentUpload = ({ patientId, onUpload }: AttachmentUploadProps) => {
       // Reset form
       setFile(null);
       setDescription('');
-      setAssociatedTooth('');
+      setAssociatedSmile('');
     } catch (error) {
       console.error('Error uploading file:', error);
     } finally {
@@ -84,7 +84,7 @@ const AttachmentUpload = ({ patientId, onUpload }: AttachmentUploadProps) => {
   const handleCancel = () => {
     setFile(null);
     setDescription('');
-    setAssociatedTooth('');
+    setAssociatedSmile('');
   };
 
   return (
@@ -171,8 +171,8 @@ const AttachmentUpload = ({ patientId, onUpload }: AttachmentUploadProps) => {
                 id="associated-tooth"
                 name="associated-tooth"
                 className="mt-1 form-input"
-                value={associatedTooth}
-                onChange={(e) => setAssociatedTooth(e.target.value)}
+                value={associatedSmile}
+                onChange={(e) => setAssociatedSmile(e.target.value)}
                 placeholder="Ex: 18"
               />
             </div>
